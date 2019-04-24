@@ -1,4 +1,8 @@
-﻿using System;
+/*312639 Hangman
+Cameron Heinz
+Want to play a game?
+*/
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
