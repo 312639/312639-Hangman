@@ -1,0 +1,19 @@
+﻿<Window x:Class="_312639_Hangman.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:_312639_Hangman"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Canvas x:Name="myCanvas" >
+        <TextBox x:Name="txtGuess" AcceptsReturn="True" TextWrapping="Wrap" Text="" FontSize="18" Foreground="White" Background="SaddleBrown" Canvas.Top="50" Width="87" Canvas.Left="10" Height="27" MaxLines="1"/>
+        <Button x:Name="btnStart" Click="StartProgram" Content="Start" Background="SandyBrown" Height="25" Canvas.Left="10" Canvas.Top="10" Width="87"/>
+        <Button x:Name="btnGuess" Click="GuessLetters" Canvas.Top="87" Background="SandyBrown" Height="25" Width="87" Content="guess" Canvas.Left="10"/>
+        <Label x:Name="lblWrongLettersTitle" Content="Wrong letters:" Foreground="White" Canvas.Left="10" Canvas.Top="134" Width="87" Background="SaddleBrown"/>
+        <Label x:Name="lblWrongLetters" Canvas.Top="165" Canvas.Left="10" Height="25" Width="87" FontWeight="Bold"/>
+        <Button x:Name="btnReset" Click="Reset" Background="SandyBrown" Content="reset" Height="25" Width="87" Canvas.Top="195" Canvas.Left="10"/>
+        <Label x:Name="lblOutput" Canvas.Left="44" Canvas.Bottom="25" Width="700" Height="90" Canvas.Top="319" FontWeight="Bold" FontSize="18"/>
+        <Canvas x:Name="myCanvas2"/>
+    </Canvas>
+</Window>
