@@ -24,6 +24,7 @@ namespace _312639_Hangman
     /// </summary>
     public partial class MainWindow : Window
     {
+        Ellipse headImage = new Ellipse();//added
         string[] incorrectGuessed = new string[5];
         string[] word = new string[10];
         string[] correctGuessed = new string[10];
@@ -35,7 +36,7 @@ namespace _312639_Hangman
         string guessedLetter = null;
         string lblWrong = null;
         string line = null;
-        
+
 
         Random random = new Random();
         System.IO.StreamReader streamReader = new System.IO.StreamReader("words.txt");
@@ -74,8 +75,8 @@ namespace _312639_Hangman
             d.Fill = Brushes.Black;
             Canvas.SetLeft(d, 600);
             Canvas.SetTop(d, 50);
-                                      
-            
+
+
             ImageBrush Image = new ImageBrush();
             Image.ImageSource = new BitmapImage(new Uri
                ("http://moziru.com/images/wild-west-clipart-background-1.jpg"));
@@ -141,7 +142,7 @@ namespace _312639_Hangman
                 //check for incorrect letters
                 if (!wordUsed.Contains(guessedLetter))
                 {
-                    
+
                     counter--;
                     incorrectGuessed[i] = guessedLetter;
                     lblWrong = lblWrong + incorrectGuessed[i] + " ";
@@ -151,7 +152,7 @@ namespace _312639_Hangman
                     {
                         lblOutput.Content = "Your guess of " + "\"" + txtGuess.Text + "\"" + " was incorrect! You have " + counter.ToString() + " guesses remaining";
                     }
-                   
+
                     //check for loss
                     if (counter == 0)
                     {
@@ -172,17 +173,15 @@ namespace _312639_Hangman
 
             if (counter == 4)
             {
-                //head
-                Ellipse a = new Ellipse();
-                a.Height = 75;
-                a.Width = 75;
-                myCanvas.Children.Add(a);
-                a.Fill = Brushes.Black;
-                Canvas.SetLeft(a, 568);
-                Canvas.SetTop(a, 99);
+                headImage.Height = 75;
+                headImage.Width = 75;
+                myCanvas.Children.Add(headImage);
+                headImage.Fill = Brushes.Black;
+                Canvas.SetLeft(headImage, 568);
+                Canvas.SetTop(headImage, 99);
             }
 
-            if(counter == 3)
+            if (counter == 3)
             {
                 //body
                 Rectangle f = new Rectangle();
@@ -206,7 +205,7 @@ namespace _312639_Hangman
                 Canvas.SetTop(g, 240);
             }
 
-            if(counter == 1)
+            if (counter == 1)
             {
                 //Left leg
                 Rectangle h = new Rectangle();
@@ -234,6 +233,7 @@ namespace _312639_Hangman
 
         private void Reset(object sender, RoutedEventArgs e)
         {
+            myCanvas.Children.Remove(headImage);//added
             streamReader.DiscardBufferedData();
             streamReader.BaseStream.Seek(0, System.IO.SeekOrigin.Begin);
             myCanvas2.Children.Clear();
@@ -250,4 +250,3 @@ namespace _312639_Hangman
         }
     }
 }
-
